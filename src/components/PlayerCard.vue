@@ -1,0 +1,55 @@
+<template>
+  <div class="flex h-64 flex-col md:h-36 md:flex-row">
+    <div class="mx-auto w-1/3 overflow-hidden">
+      <img :src="player.picture" class="scale-150 pt-9 xl:pt-10" />
+    </div>
+
+    <div class="w-full md:w-2/3">
+      <div
+        class="py-4 text-center montserrat bold text-myorange md:pl-3 md:text-left"
+      >
+        <h1 class="font-montserrat font-bold">
+          {{ player.firstname }} {{ player.lastname }}
+        </h1>
+      </div>
+      <div class="flex px-4 pb-3">
+        <div class="flex w-1/3 flex-col">
+          <p class="uppercase text-black opacity-30 font-mulish font-bold">
+            Rank
+          </p>
+          <p class="text-myorange font-montserrat font-bold">
+            {{ "# " + player.data.rank }}
+          </p>
+        </div>
+        <div class="flex w-1/3 flex-col">
+          <p class="uppercase text-black opacity-30 font-mulish font-bold">
+            Points
+          </p>
+          <p class="text-myorange font-montserrat font-bold">
+            {{ player.data.points }}
+          </p>
+        </div>
+        <div class="flex w-1/3 flex-col">
+          <p class="text-black uppercase opacity-30 font-mulish font-bold">
+            Country
+          </p>
+          <p class="text-myorange font-montserrat font-bold">
+            {{ player.country.code }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "PlayerCard",
+  props: {
+    player: {
+      type: Object,
+      required: true,
+    },
+  },
+};
+</script>
