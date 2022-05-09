@@ -20,7 +20,7 @@
             v-for="(player, index) in playerStore.dataPlayer"
             :key="index"
             @click="goToPlayer(player.id)"
-            class="mx-auto mt-4 w-3/4 bg-white shadow-xl"
+            class="mx-auto mt-4 cursor-pointer w-3/4 bg-white shadow-xl"
           >
             <PlayerCard :player="player" />
           </div>
