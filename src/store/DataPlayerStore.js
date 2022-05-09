@@ -16,7 +16,6 @@ export const useDataPlayerStore = defineStore("PlayersStore", {
         .then(response => response.json())
         .catch(error => console.error('Error:', error))
       }
-      console.log('data:', data)
       this.dataPlayer = data
     },
 

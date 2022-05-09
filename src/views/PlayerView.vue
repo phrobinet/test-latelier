@@ -1,5 +1,6 @@
 <template>
   <div class="flex h-screen flex-col bg-amber-900 p-16">
+    <!-- Image Profile Section -->
     <div class="mx-auto cursor-pointer" @click="goHome">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -28,74 +29,61 @@
         />
       </div>
 
+      <!-- Information Player Section -->
       <div class="flex w-full flex-col md:w-3/4">
         <div class="flex h-60">
           <div class="w-4/5 mt-8 ml-4">
             <h1
               class="md:text-5xl xl:text-6xl -mb-8 text-4xl font-bold text-myorange"
             >
-              {{ playerStore.player.firstname }}
+              {{ playerInfo.firstname }}
             </h1>
             <h1 class="lg:text-8xl md:7xl text-6xl font-bold text-myorange">
-              {{ playerStore.player.lastname }}
+              {{ playerInfo.lastname }}
             </h1>
           </div>
 
-          <div
-            class="mt-6 mr-6 flex w-1/5"
-            v-show="playerStore.player.country.picture"
-          >
-            <div>
-              <img
-                :src="playerStore.player.country.picture"
-                class=""
-                alt=""
-                srcset=""
-              />
-              <h1 class="mt-3 text-center uppercase text-black opacity-30">
-                {{ playerStore.player.country.code }}
-              </h1>
-            </div>
+          <div class="mt-5 px-9">
+            <img
+              :src="playerInfo.country.picture"
+              alt="Country Flag"
+              class="w-48"
+            />
+            <h1
+              class="mt-3 text-center uppercase text-black opacity-30 text-3xl"
+            >
+              {{ playerInfo.country.code }}
+            </h1>
           </div>
         </div>
 
         <div class="ml-7 flex flex-col lg:flex-row">
           <div class="grid w-full grid-cols-3 lg:w-2/3">
-            <InfoPlayer
-              title="Rank"
-              :data="'# ' + playerStore.player.data.rank"
-            />
+            <InfoPlayer title="Rank" :data="'# ' + playerInfo.data.rank" />
 
-            <InfoPlayer title="Points" :data="playerStore.player.data.points" />
+            <InfoPlayer title="Points" :data="playerInfo.data.points" />
 
-            <InfoPlayer
-              title="Country"
-              :data="playerStore.player.country.name"
-            />
+            <InfoPlayer title="Country" :data="playerInfo.country.name" />
 
-            <InfoPlayer
-              title="Birthday"
-              :data="playerStore.player.data.birthday"
-            />
+            <InfoPlayer title="Birthday" :data="playerInfo.data.birthday" />
 
-            <InfoPlayer title="Age" :data="playerStore.player.data.age" />
+            <InfoPlayer title="Age" :data="playerInfo.data.age" />
 
             <InfoPlayer
               title="Weight"
-              :data="playerStore.player.data.weight / 1000 + ' kg'"
+              :data="playerInfo.data.weight / 1000 + ' kg'"
             />
 
-            <InfoPlayer
-              title="Height"
-              :data="playerStore.player.data.height + ' cm'"
-            />
+            <InfoPlayer title="Height" :data="playerInfo.data.height + ' cm'" />
           </div>
-          <div class="w-full lg:w-1/3">
+
+          <!-- Career Title -->
+          <div class="lg:w-1/3 border-2w-fit mx-auto">
             <h1 class="font-mulish font-bold uppercase text-black opacity-30">
               Career Titles
             </h1>
             <div
-              v-for="win in playerStore.player.title"
+              v-for="win in playerInfo.title"
               :key="win.year"
               class="pb-3 text-myorange"
             >
@@ -106,7 +94,7 @@
               <p
                 v-for="(item, index) in win.items"
                 :key="index"
-                class="font-mulish font-semibold"
+                class="font-mulish font-normal"
               >
                 {{ item }}
               </p>
@@ -122,12 +110,16 @@
 import { useRoute, useRouter } from "vue-router";
 import { useDataPlayerStore } from "../store/DataPlayerStore";
 import InfoPlayer from "@/components/InfoPlayer.vue";
+
 const router = useRouter();
 const route = useRoute();
 const playerStore = useDataPlayerStore();
+const playerInfo = playerStore.player;
+
 function goHome() {
   playerStore.player = {};
   router.push("/");
 }
+
 playerStore.getPlayer(route.params.id);
 </script>

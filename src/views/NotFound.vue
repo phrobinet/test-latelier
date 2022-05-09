@@ -7,6 +7,14 @@
       <h1 class="text-3xl font-bold leading-tight text-gray-900">
         Page Not Found
       </h1>
+      <p class="text-center">
+        Go
+        <router-link
+          to="/"
+          class="underline-offset-1 underline text-blue-600 hover:text-purple-600"
+          >Home</router-link
+        >
+      </p>
     </div>
   </div>
 </template>

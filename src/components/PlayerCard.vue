@@ -1,10 +1,12 @@
 <template>
   <div class="flex h-64 flex-col md:h-36 md:flex-row">
+    <!-- Flag Country -->
     <div class="mx-auto w-1/3 overflow-hidden">
       <img :src="player.picture" class="scale-150 pt-9 xl:pt-10" />
     </div>
 
     <div class="w-full md:w-2/3">
+      <!-- Player's Name -->
       <div
         class="py-4 text-center montserrat bold text-myorange md:pl-3 md:text-left"
       >
@@ -12,6 +14,8 @@
           {{ player.firstname }} {{ player.lastname }}
         </h1>
       </div>
+
+      <!-- ID Player -->
       <div class="flex px-4 pb-3">
         <div class="flex w-1/3 flex-col">
           <p class="uppercase text-black opacity-30 font-mulish font-bold">
