@@ -3,8 +3,8 @@
     <!-- Img Player -->
     <div class="mx-auto w-1/3 overflow-hidden">
       <img
-        v-if="player.profilePicture"
-        :src="player.profilePicture"
+        v-if="player.picture"
+        :src="player.picture"
         class="scale-150 pt-9 xl:pt-10"
         data-test="picture"
       />

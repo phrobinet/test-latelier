@@ -17,7 +17,7 @@ describe('PlayerCard.vue', () => {
             name: 'Serbia',
             code: 'SRB',
           },
-          profilePicture: "https://data.latelier.co/training/tennis_stats/resources/Djokovic.png"
+          picture: "https://data.latelier.co/training/tennis_stats/resources/Djokovic.png"
         }
       }
     })
