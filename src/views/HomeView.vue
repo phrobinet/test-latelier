@@ -19,6 +19,7 @@
           <div
             v-for="(player, index) in playerStore.dataPlayer"
             :key="index"
+            data-test="players"
             @click="goToPlayer(player.id)"
             class="mx-auto mt-4 cursor-pointer w-3/4 bg-white shadow-xl"
           >

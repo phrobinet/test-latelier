@@ -23,6 +23,7 @@
     <div class="flex h-screen bg-white">
       <div class="hidden h-screen w-1/4 md:inline">
         <img
+          v-if="playerStore.player.picture"
           :src="playerStore.player.picture"
           alt=""
           class="-translate-x-1/4 scale-150 w-screen pt-16"
@@ -45,6 +46,7 @@
 
           <div class="mt-5 px-9">
             <img
+              v-if="playerInfo.country.picture"
               :src="playerInfo.country.picture"
               alt="Country Flag"
               class="w-48"
