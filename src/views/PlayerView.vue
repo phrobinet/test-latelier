@@ -33,13 +33,13 @@
       <!-- Information Player Section -->
       <div class="flex w-full flex-col md:w-3/4">
         <div class="flex h-60">
-          <div class="w-4/5 mt-8 ml-4">
+          <div class="w-4/5 mt-8 ml-4 lg:-translate-x-14">
             <h1
-              class="md:text-5xl xl:text-6xl -mb-8 text-4xl font-bold text-myorange"
+              class="md:text-5xl xl:text-7xl -mb-8 text-4xl font-bold text-myorange"
             >
               {{ playerInfo.firstname }}
             </h1>
-            <h1 class="lg:text-8xl md:7xl text-6xl font-bold text-myorange">
+            <h1 class="lg:text-9xl md:8xl text-6xl font-bold text-myorange">
               {{ playerInfo.lastname }}
             </h1>
           </div>
@@ -59,8 +59,10 @@
           </div>
         </div>
 
-        <div class="ml-7 flex flex-col lg:flex-row">
-          <div class="grid w-full grid-cols-3 lg:w-2/3">
+        <div class="ml-7 flex flex-col lg:flex-row mt-12">
+          <div
+            class="grid w-full md:grid-cols-3 grid-cols-2 justify-self-start pl-5 lg:w-2/3"
+          >
             <InfoPlayer title="Rank" :data="'# ' + playerInfo.data.rank" />
 
             <InfoPlayer title="Points" :data="playerInfo.data.points" />
